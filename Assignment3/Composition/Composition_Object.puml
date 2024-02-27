@@ -1,0 +1,78 @@
+@startuml
+
+object "<u>phpDemo1: Folder</u>" as phpDemo1 {
+    name = "php_demo1"
+    subfolders = [
+        "<u>Source Files: Folder</u>",
+        "<u>Include Path: Folder</u>",
+        "<u>Remote Files: Folder</u>"
+    ]
+    files = []
+}
+
+object "<u>Source Files: Folder</u>" as sourceFiles {
+    name = "Source Files"
+    subfolders = [
+        "<u>.phalcon: Folder</u>",
+        "<u>app: Folder</u>",
+        "<u>cache: Folder</u>",
+        "<u>public: Folder</u>"
+    ]
+    files = []
+}
+
+object "<u>.phalcon: Folder</u>" as phalcon {
+    name = ".phalcon"
+    subfolders = []
+    files = []
+}
+
+object "<u>cache: Folder</u>" as cache {
+    name = "cache"
+    subfolders = []
+    files = []
+}
+
+object "<u>public: Folder</u>" as publicFolder {
+    name = "public"
+    subfolders = []
+    files = [
+        "<u>.htaccess: File</u>",
+        "<u>.htrouter.php: File</u>",
+        "<u>index.html: File</u>"
+    ]
+}
+
+object "<u>.htaccess: File</u>" as htaccess {
+    name = ".htaccess"
+}
+
+object "<u>.htrouter.php: File</u>" as htrouter {
+    name = ".htrouter.php"
+}
+
+object "<u>index.html: File</u>" as indexHtml {
+    name = "index.html"
+}
+
+object "<u>Include Path: Folder</u>" as includePath {
+    name = "Include Path"
+    subfolders = []
+    files = []
+}
+
+object "<u>Remote Files: Folder</u>" as remoteFiles {
+    name = "Remote Files"
+    subfolders = []
+    files = []
+}
+
+phpDemo1 *-- sourceFiles
+sourceFiles *-- phalcon
+sourceFiles *-- cache
+sourceFiles *-- publicFolder
+publicFolder *-- htaccess
+publicFolder *-- htrouter
+publicFolder *-- indexHtml
+
+@enduml
