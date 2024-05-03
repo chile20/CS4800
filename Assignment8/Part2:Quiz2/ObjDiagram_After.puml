@@ -1,0 +1,138 @@
+@startuml
+' Layout Direction
+left to right direction
+
+' Define Objects
+object "Document : testDocument" as doc {
+  characters = List<Character>
+}
+
+object "CharacterPropertiesFactory : propertiesFactory" as cpf <<factory>> {
+  flyweights = HashMap<String, CharacterProperties>
+}
+
+' Characters Properties Instances
+object "CharacterProperties : ArialBlack14" as CP1 {
+  font = "Arial"
+  color = "Black"
+  size = 14
+}
+object "CharacterProperties : ArialBlack16" as CP2 {
+  font = "Arial"
+  color = "Black"
+  size = 16
+}
+object "CharacterProperties : VerdanaBlue18" as CP3 {
+  font = "Verdana"
+  color = "Blue"
+  size = 18
+}
+object "CharacterProperties : VerdanaRed12" as CP4 {
+  font = "Verdana"
+  color = "Red"
+  size = 12
+}
+
+object "CharacterProperties : CalibriBlue99" as CP5 {
+  font = "Calibri"
+  color = "Blue"
+  size = 99
+}
+
+' Define Characters
+object "Character : H" as Ch1 {
+  character = 'H'
+}
+object "Character : e" as Ch2 {
+  character = 'e'
+}
+object "Character : l1" as Ch3 {
+  character = 'l'
+}
+object "Character : l2" as Ch4 {
+  character = 'l'
+}
+object "Character : o1" as Ch5 {
+  character = 'o'
+}
+object "Character : W" as Ch6 {
+  character = 'W'
+}
+object "Character : o2" as Ch7 {
+  character = 'o'
+}
+object "Character : r" as Ch8 {
+  character = 'r'
+}
+object "Character : l3" as Ch9 {
+  character = 'l'
+}
+object "Character : d" as Ch10 {
+  character = 'd'
+}
+object "Character : C" as Ch11 {
+  character = 'C'
+}
+object "Character : S" as Ch12 {
+  character = 'S'
+}
+object "Character : 5" as Ch13 {
+  character = '5'
+}
+object "Character : 8" as Ch14 {
+  character = '8'
+}
+object "Character : 0_1" as Ch15 {
+  character = '0'
+}
+object "Character : 0_2" as Ch16 {
+  character = '0'
+}
+
+' Define Relationships
+doc --> cpf : "uses"
+cpf -[hidden]-> CP1
+cpf -[hidden]-> CP2
+cpf -[hidden]-> CP3
+cpf -[hidden]-> CP4
+doc --> Ch1 : "contains"
+doc --> Ch2 : "contains"
+doc --> Ch3 : "contains"
+doc --> Ch4 : "contains"
+doc --> Ch5 : "contains"
+doc --> Ch6 : "contains"
+doc --> Ch7 : "contains"
+doc --> Ch8 : "contains"
+doc --> Ch9 : "contains"
+doc --> Ch10 : "contains"
+doc --> Ch11 : "contains"
+doc --> Ch12 : "contains"
+doc --> Ch13 : "contains"
+doc --> Ch14 : "contains"
+doc --> Ch15 : "contains"
+doc --> Ch16 : "contains"
+
+cpf --> CP1 : "manages"
+cpf --> CP2 : "manages"
+cpf --> CP3 : "manages"
+cpf --> CP4 : "manages"
+cpf --> CP5 : "manages"
+
+Ch1 --> CP5 : "uses"
+Ch2 --> CP1 : "uses"
+Ch3 --> CP1 : "uses"
+Ch4 --> CP1 : "uses"
+Ch5 --> CP1 : "uses"
+Ch6 --> CP5 : "uses"
+Ch7 --> CP1 : "uses"
+Ch8 --> CP1 : "uses"
+Ch9 --> CP1 : "uses"
+Ch10 --> CP1 : "uses"
+Ch11 --> CP3 : "uses"
+Ch12 --> CP3 : "uses"
+Ch13 --> CP4 : "uses"
+Ch14 --> CP4 : "uses"
+Ch15 --> CP4 : "uses"
+Ch16 --> CP4 : "uses"
+
+@enduml
