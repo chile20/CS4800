@@ -5,6 +5,7 @@ left to right direction
 ' Define Objects
 object "Document : testDocument" as doc {
   characters = List<Character>
+  propertiesFactory = CharacterPropertiesFactory
 }
 
 object "CharacterPropertiesFactory : propertiesFactory" as cpf <<factory>> {

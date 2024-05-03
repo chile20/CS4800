@@ -9,6 +9,7 @@ object "Document : testDocument" as doc {
 
 object "CharacterPropertiesFactory : propertiesFactory" as cpf <<factory>> {
   flyweights = HashMap<String, CharacterProperties>
+  propertiesFactory = CharacterPropertiesFactory
 }
 
 ' Characters Properties Instances
