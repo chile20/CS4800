@@ -3,7 +3,7 @@
 left to right direction
 
 ' Define Objects
-object "Document : testDocument" as doc {
+object "Document : readDocumentVerify" as doc {
   characters = List<Character>
   propertiesFactory = CharacterPropertiesFactory
 }
