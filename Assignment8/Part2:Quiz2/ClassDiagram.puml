@@ -36,9 +36,10 @@ class CharacterPropertiesFactory {
     +setAndRetrieveFlyweightCharacterProperties(font : String, color : String, size : int) : CharacterProperties
     +sizeOfMap() : int
 }
-Document " 1 " o-- "  0..*  " Character : > contains
-Document " 1 " o-- " 1 " CharacterPropertiesFactory : > has
-CharacterPropertiesFactory " 1 " *-- " 0.. *" CharacterProperties : > creates/manages
-Character "1" o-- "1" CharacterProperties : uses >
+
+Document " 1 " *-- "  0..*  " Character : > own a
+Document " 1 " *-- " 1 " CharacterPropertiesFactory : > own a
+CharacterPropertiesFactory " 1 " o-- " 0.. *" CharacterProperties : > manages
+Character "0..*" o-- "1" CharacterProperties : has a >
 
 @enduml
