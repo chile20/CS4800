@@ -18,6 +18,9 @@ public class VendingMachine {
     public void setState(StateOfVendingMachine newState) {
         this.currentState = newState;
     }
+    public StateOfVendingMachine getCurrentState(){
+        return currentState;
+    }
     public void addSnack(Snack snack) {
         snacks.put(snack.getName(), snack);
     }
@@ -35,7 +38,7 @@ public class VendingMachine {
     }
 
     public void dispenseSnack() {
-        handlerChain.handleRequest(this);
+        currentState.dispenseSnack(this);
     }
     public void changeState(StateOfVendingMachine newState) {
         currentState = newState;
@@ -55,5 +58,8 @@ public class VendingMachine {
 
     public Snack getSelectedSnack() {
         return selectedSnack;
+    }
+    public SnackDispenseHandler getHandlerChain() {
+        return handlerChain;
     }
 }

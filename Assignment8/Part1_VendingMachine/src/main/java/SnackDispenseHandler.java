@@ -5,23 +5,11 @@ public abstract class SnackDispenseHandler {
         this.nextHandler = nextHandler;
     }
 
-    public void handleRequest(VendingMachine machine) {
-        if (machine.getSelectedSnack() != null && canHandle(machine.getSelectedSnack().getName())) {
-            if (machine.getInsertedMoney() >= machine.getSelectedSnack().getPrice() &&
-                    machine.getSelectedSnack().getQuantity() > 0) {
-                dispenseSnack(machine);
-                machine.setState(new IdleState());
-            } else {
-                System.out.println("Not enough money or snack is out of stock.");
-            }
-        } else if (nextHandler != null) {
-            nextHandler.handleRequest(machine);
-        } else {
-            System.out.println("No suitable handler found for the snack.");
+    public boolean handleRequest(Snack snack){
+        if (nextHandler != null){
+            return nextHandler.handleRequest(snack);
         }
+        return false;
     }
-
-    protected abstract boolean canHandle(String snackName);
-    protected abstract void dispenseSnack(VendingMachine machine);
 }
 
